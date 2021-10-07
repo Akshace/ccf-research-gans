@@ -15,26 +15,6 @@ via 3D Generative-Adversarial Modeling". I reference [ tf-3dgan](https://github.
 * scipy
 * scikit-image
 
-### Usage
-
-I use [floydhub](https://www.floydhub.com/) to train model   
-Floydhub is simple deeplearining training tool  
-They offer free-tier for 100h gpu server
-```
-pip install -U floyd-cli
-```
-
-```
-#./input
-floyd data init chair
-floyd data upload
-```
-```
-#./3D_GAN
-floyd init 3dgan
-floyd data status
-floyd run --env pytorch --gpu --data [your data id] "python3 main.py"
-```
 
 This porject structure is fitted with floydhub structure, so parent directory contain input, output, 3D_GAN directory  
 
