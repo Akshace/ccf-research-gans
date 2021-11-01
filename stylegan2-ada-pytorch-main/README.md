@@ -58,7 +58,7 @@ python generate.py --outdir=out --trunc=1 --seeds=85,265,297,849 \
 
 Outputs from the above commands are placed under `out/*.png`, controlled by `--outdir`. Downloaded network pickles are cached under `$HOME/.cache/dnnlib`, which can be overridden by setting the `DNNLIB_CACHE_DIR` environment variable. The default PyTorch extension build directory is `$HOME/.cache/torch_extensions`, which can be overridden by setting `TORCH_EXTENSIONS_DIR`.
 
-```
+
 
 ## Using networks from Python
 
