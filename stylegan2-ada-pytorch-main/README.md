@@ -1,4 +1,4 @@
-## StyleGAN2-ADA &mdash; Official PyTorch implementation to generate synthetic kidney Glomeruli images
+## StyleGAN2-ADA &mdash; PyTorch implementation to generate synthetic kidney Glomeruli images
 
 
 **Training Generative Adversarial Networks with Limited Data**<br>
