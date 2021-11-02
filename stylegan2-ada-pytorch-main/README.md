@@ -1,7 +1,7 @@
 ## StyleGAN2-ADA &mdash; PyTorch implementation to generate synthetic kidney Glomeruli images
 
 
-**Training Generative Adversarial Networks with Limited Data**<br>
+** Based on Training Generative Adversarial Networks with Limited Data**<br>
 Tero Karras, Miika Aittala, Janne Hellsten, Samuli Laine, Jaakko Lehtinen, Timo Aila<br>
 https://arxiv.org/abs/2006.06676<br>
 
@@ -52,11 +52,11 @@ The code relies heavily on custom PyTorch extensions that are compiled on the fl
 ## Getting started
 
 Pre-trained networks are stored as `*.pkl` files that can be referenced using local filenames or URLs:
-
+```
 python generate.py --outdir=out --trunc=1 --seeds=85,265,297,849 \
     --network=(URL or file-path of pre-trained downloaded from link above)
-
-Outputs from the above commands are placed under `out/*.png`, controlled by `--outdir`. Downloaded network pickles are cached under `$HOME/.cache/dnnlib`, which can be overridden by setting the `DNNLIB_CACHE_DIR` environment variable. The default PyTorch extension build directory is `$HOME/.cache/torch_extensions`, which can be overridden by setting `TORCH_EXTENSIONS_DIR`.
+```
+Outputs from the above commands are placed under `out/*.png`, controlled by `--outdir`. 
 
 
 
@@ -122,12 +122,6 @@ The total training time depends heavily on resolution, number of GPUs, dataset, 
 | 1024x1024  | 8    | 5h 54m    | 6d 03h     | 20.2&ndash;20.6   | 8.3 GB  | 44.7 GB
 
 The above measurements were done using NVIDIA Tesla V100 GPUs with default settings (`--cfg=auto --aug=ada --metrics=fid50k_full`). "sec/kimg" shows the expected range of variation in raw training performance, as reported in `log.txt`. "GPU mem" and "CPU mem" show the highest observed memory consumption, excluding the peak at the beginning caused by `torch.backends.cudnn.benchmark`.
-
-In typical cases, 25000 kimg or more is needed to reach convergence, but the results are already quite reasonable around 5000 kimg. 1000 kimg is often enough for transfer learning, which tends to converge significantly faster. The following figure shows example convergence curves for different datasets as a function of wallclock time, using the same settings as above:
-
-![Training curves](./docs/stylegan2-ada-training-curves.png)
-
-Note: `--cfg=auto` serves as a reasonable first guess for the hyperparameters but it does not necessarily lead to optimal results for a given dataset. For example, `--cfg=stylegan2` yields considerably better FID  for FFHQ-140k at 1024x1024 than illustrated above. We recommend trying out at least a few different values of `--gamma` for each new dataset.
 
 
 ```
